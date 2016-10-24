@@ -26,3 +26,14 @@ Questions? Add me on Line @Sqam
 
 ![alt tag](https://i.gyazo.com/75373d5b119a53cec727235a40c384d7.png)
 ![alt tag](https://i.gyazo.com/aa0bc29225676517f142539dd4e9d531.png)
+
+#Example images of a single simulation:
+
+![alt tag](https://i.gyazo.com/4679401abbddc183c59d4bd0a065da9b.png)
+![alt tag](https://i.gyazo.com/ac65441c2efb8d2ba584f993b7f711e1.png)
+![alt tag](https://i.gyazo.com/50a0f15252d0e06056172095019357e5.png)
+![alt tag](https://i.gyazo.com/56656080a42e183de2fec23375d4e4ac.png)
+
+#Example image of a 10.000 simulations session:
+
+![alt tag](https://i.gyazo.com/22d49f50ad4b308653bcb0ba3988ab85.png)
