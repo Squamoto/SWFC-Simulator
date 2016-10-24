@@ -20,9 +20,9 @@ from the 27th January 2016. If you change code in the simulator, just export it 
 
 Questions? Add me on Line @Sqam
 
-#mmmhax
+##mmmhax
 
-Example images of the configuration:
+#Example images of the configuration:
 
 ![alt tag](https://i.gyazo.com/75373d5b119a53cec727235a40c384d7.png)
 ![alt tag](https://i.gyazo.com/aa0bc29225676517f142539dd4e9d531.png)
