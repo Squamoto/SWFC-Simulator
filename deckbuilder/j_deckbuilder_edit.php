@@ -14,7 +14,7 @@ if (!isset($_POST["deck"])) {
 
 
 
-	mysql_connect("localhost", "root", "")or die("cannot connect"); 
+	mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 	mysql_select_db("cardinfo")or die("cannot select DB");
 
 $sql="SELECT * FROM cardinfo WHERE `rarity` >= 0 ORDER BY card_name ASC";
@@ -51,7 +51,7 @@ else{
 
 function popOptions($card){
 
-	mysql_connect("localhost", "root", "")or die("cannot connect"); 
+	mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 	mysql_select_db("cardinfo")or die("cannot select DB");
 //--select a card-- disabled
 $sql="SELECT * FROM cardinfo WHERE `card_id` = 0";
@@ -421,7 +421,7 @@ switch($state){
 	//var_dump($deck_chunk);
 	
 	
-	mysql_connect("localhost", "root", "")or die("cannot connect"); 
+	mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 	mysql_select_db("cardinfo")or die("cannot select DB");
 
 	

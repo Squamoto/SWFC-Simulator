@@ -377,7 +377,7 @@ $deckfinal = "$amount $name1 ";
 
 foreach($cardarray as $key => $value) {
 
-	mysql_connect("localhost", "root", "")or die("cannot connect"); 
+	mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 	mysql_select_db("cardinfo")or die("cannot select DB");
 
 	$sql="SELECT * FROM cardinfo WHERE card_id = '".$value."'";
@@ -403,7 +403,7 @@ $deckfinal .= "$leader_f1 $force1 $ambush1 $call1 $hp_up1 $lure1 $null1 $prep1 $
 
 foreach($uc_array as $key => $value) {
 
-	mysql_connect("localhost", "root", "")or die("cannot connect"); 
+	mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 	mysql_select_db("cardinfo")or die("cannot select DB");
 
 	$sql="SELECT * FROM cardinfo WHERE card_id = '".$value."'";
@@ -429,7 +429,7 @@ $deckfinal .= "$name2 ";
 
 foreach($cardarray2 as $key => $value) {
 
-	mysql_connect("localhost", "root", "")or die("cannot connect"); 
+	mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 	mysql_select_db("cardinfo")or die("cannot select DB");
 
 	$sql="SELECT * FROM cardinfo WHERE card_id = '".$value."'";
@@ -455,7 +455,7 @@ $deckfinal .= "$leader_f2 $force2 $ambush2 $call2 $hp_up2 $lure2 $null2 $prep2 $
 
 foreach($uc_array2 as $key => $value) {
 
-	mysql_connect("localhost", "root", "")or die("cannot connect"); 
+	mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 	mysql_select_db("cardinfo")or die("cannot select DB");
 
 	$sql="SELECT * FROM cardinfo WHERE card_id = '".$value."'";

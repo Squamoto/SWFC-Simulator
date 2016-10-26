@@ -17,7 +17,7 @@
 	  
 <?php
 	
-mysql_connect("localhost", "root", "")or die("cannot connect"); 
+mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 mysql_select_db("cardinfo")or die("cannot select DB");
 
 $deck_full=$_GET['deck'];
