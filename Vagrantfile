@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
   
   sudo -i
   yum update
-  yum install -y httpd expect mariadb-server php php-pear php-mysql java-1.8.0-openjdk unzip
+  yum install -y httpd expect mariadb-server php php-pear php-mysql java-1.8.0-openjdk unzip git
   sudo systemctl enable httpd
   sudo systemctl start httpd
   sudo systemctl enable mariadb.service
@@ -53,6 +53,7 @@ Vagrant.configure(2) do |config|
   fi
 
   cp -r /home/vagrant/SWFC-Simulator/deckbuilder /var/www/html/simulator
+  cp  /home/vagrant/SWFC-Simulator/deckbuilder/index.html /var/www/html
   mkdir -p /var/www/html/SWFC
   cp -r /home/vagrant/SWFC-Simulator/images /var/www/html/SWFC/images
   SHELL
