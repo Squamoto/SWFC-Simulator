@@ -18,7 +18,7 @@ actually print out useful information instead of html code.
 If you want to run the simulator with the php scripts, start with "../deckbuilder/j_deckbuilder_create.php", the simulator.jar is the version
 from the 27th January 2016. If you change code in the simulator, just export it as .jar file and replace the current simulator.jar.
 
-Questions? Add me on Line @Sqam
+#Questions? Add me on Line @Sqam
 
 ### #mmmhax
 
