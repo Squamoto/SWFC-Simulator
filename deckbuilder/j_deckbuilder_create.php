@@ -9,7 +9,7 @@ define( 'DS','/' );
 function popOptions()
 
 {
-	mysql_connect("localhost", "root", "")or die("cannot connect"); 
+	mysql_connect("localhost", "root", "swfc4life")or die("cannot connect"); 
 	mysql_select_db("cardinfo")or die("cannot select DB");
 //--select a card-- disabled
 $sql="SELECT * FROM cardinfo WHERE `card_id` = 0";

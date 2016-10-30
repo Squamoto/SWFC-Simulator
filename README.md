@@ -24,3 +24,25 @@ Questions? Add me on Line @Sqam
 
 #Example images:
 http://imgur.com/a/KcpWp
+
+# Vagrant
+
+To use Vagrant: (for OSX, Linux, or windows)
+
+1. Install virtualbox: https://www.virtualbox.org/wiki/Downloads
+1. Install Vagrant: https://www.vagrantup.com/downloads.html
+1. Install Vagrant vbguest additions:
+
+    `$ vagrant plugin install vagrant-vbguest`
+1. Start Vagrant. On the command line from the same directory as the Vagrantfile (this will take a while the first time you run it)
+
+    ```$ vagrant up```
+
+1. Browse to the simulator: http://localhost:8080
+
+1. You can edit code etc by sshing into the vagrant machine
+
+```shell
+$ vagrant ssh
+$ cd SWFC-Simulator
+     ```

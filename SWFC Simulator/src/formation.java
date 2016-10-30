@@ -240,7 +240,7 @@ public class formation
 		{
 			try
 			{
-				con = DriverManager.getConnection("jdbc:mysql://localhost/cardinfo", "root", "");
+				con = DriverManager.getConnection("jdbc:mysql://localhost/cardinfo", "root", "swfc4life");
 				st = con.createStatement();
 				rs = st.executeQuery("SELECT * FROM cardinfo WHERE card_id = " + card_ids[i]);
 				String pattern = "Unknown";
@@ -337,7 +337,7 @@ public class formation
 	{
 		try
 		{
-			con = DriverManager.getConnection("jdbc:mysql://localhost/cardinfo", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/cardinfo", "root", "swfc4life");
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT * FROM `cardinfo` WHERE `race` % 512 > 256 and `rarity` = 4");
 			String pattern = "Unknown";
@@ -828,7 +828,7 @@ public class formation
 	{
 		try
 		{
-			con = DriverManager.getConnection("jdbc:mysql://localhost/cardinfo", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/cardinfo", "root", "swfc4life");
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT * FROM `cardinfo` WHERE `card_id` = " + card_id);
 			String pattern = "Unknown";
