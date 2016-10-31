@@ -1,6 +1,5 @@
 # SWFC-Simulator
 A noobish try to create a SWFC battle simulator
-<<<<<<< HEAD
 =======
 
 Thought I'd release my SWFC simulator project as I'm no longer working on it, maybe other people can continue to develop it.
@@ -48,4 +47,3 @@ To use Vagrant: (for OSX, Linux, or windows)
 $ vagrant ssh
 $ cd SWFC-Simulator
      ```
->>>>>>> branch 'master' of https://github.com/Squamoto/SWFC-Simulator.git
