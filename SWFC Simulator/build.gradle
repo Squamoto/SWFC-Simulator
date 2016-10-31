@@ -1,0 +1,28 @@
+apply plugin: 'java'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+}
+repositories {
+    jcenter()
+}
+
+jar {
+  from { configurations.runtime.collect { it.directory ? it : zipTree(it) } }
+  manifest {
+    attributes(
+      'Class-Path': '.',
+      'Main-Class': 'simulator'
+    )
+  }
+}
+
+dependencies {
+    //testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
+    compile 'org.mariadb.jdbc:mariadb-java-client:1.5.4'
+}

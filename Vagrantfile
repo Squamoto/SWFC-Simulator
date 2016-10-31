@@ -13,13 +13,30 @@ Vagrant.configure(2) do |config|
     # Display the VirtualBox GUI when booting the machine
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
+    vb.customize ["modifyvm", :id, "--nictype1", "virtio" ]
+    # suggested fix for slow network performance
+    # see https://github.com/mitchellh/vagrant/issues/1807
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
   config.vm.provision "shell", inline: <<-SHELL
   
   sudo -i
   yum update
-  yum install -y httpd expect mariadb-server php php-pear php-mysql java-1.8.0-openjdk unzip git
+  yum install -y httpd expect mariadb-server php php-pear php-mysql java-1.8.0-openjdk-devel unzip git
+
+  # Set JAVA_HOME for vagrant user
+  echo "export JAVA_HOME=/usr/lib/jvm/java" >> /home/vagrant/.bashrc
+  chown vagrant:vagrant /home/vagrant/.bashrc
+  source /home/vagrant/.bashrc
+
+  # Set JAVA_HOME for root user
+  echo "export JAVA_HOME=/usr/lib/jvm/java" >> /root/.bashrc
+
+  #For audit2allow
+  #yum install -y policycoreutils-python 
+  
   sudo systemctl enable httpd
   sudo systemctl start httpd
   sudo systemctl enable mariadb.service
@@ -47,14 +64,14 @@ Vagrant.configure(2) do |config|
   ')
   echo "$VARA"
 
-  cd /home/vagrant/SWFC-Simulator/images
-  if [[ ! -f /home/vagrant/SWFC-Simulator/images/images.zip ]]; then
-    curl -L -O https://www.dropbox.com/s/rcd5lk6bg81glfw/images.zip
-  fi
+  #Setup the Database
+  echo "create database cardinfo" | mysql --user=root --password=swfc4life
+  mysql --user=root --password=swfc4life cardinfo < /home/vagrant/SWFC-Simulator/database/cardinfo.sql
+  semodule -i /home/vagrant/SWFC-Simulator/security/swfc.pp
 
-  cp -r /home/vagrant/SWFC-Simulator/deckbuilder /var/www/html/simulator
-  cp  /home/vagrant/SWFC-Simulator/deckbuilder/index.html /var/www/html
-  mkdir -p /var/www/html/SWFC
-  cp -r /home/vagrant/SWFC-Simulator/images /var/www/html/SWFC/images
+  #Build and install the app
+  sudo -u vagrant -i
+  cd /home/vagrant/SWFC-Simulator
+  ./build.sh
   SHELL
 end

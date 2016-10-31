@@ -1,0 +1,18 @@
+
+module swfc 1.0;
+
+require {
+	type mysqld_port_t;
+	type httpd_t;
+	class process execmem;
+	class tcp_socket name_connect;
+}
+
+#============= httpd_t ==============
+
+#!!!! This avc can be allowed using one of the these booleans:
+#     httpd_can_network_connect, httpd_can_network_connect_db
+allow httpd_t mysqld_port_t:tcp_socket name_connect;
+
+#!!!! This avc can be allowed using the boolean 'httpd_execmem'
+allow httpd_t self:process execmem;
