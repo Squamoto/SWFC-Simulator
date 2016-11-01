@@ -311,7 +311,7 @@ public class formation
 					
 					cards.set(i, (new card(card_ids[i], rs.getString("card_name"), stats[5], stats[1], stats[2], stats[3], stats[4], stats[0], attackCount, range, pattern, delay, 
 							rs.getInt("race"), rs.getInt("skill_id"), rs.getString("skill_name"), skill_level, effect, rs.getInt("type"), rs.getInt("priority"), side, rs.getInt("rarity")+1, rs.getInt("weapon_type"), 
-							rs.getInt("lvup_prob"), this)));
+							rs.getInt("lvup_prob"), this, rs.getInt("character_id"))));
 					//if(do_info)
 						System.out.println(rs.getString("card_name") + " created with " + stats[1] + " ATK, " + stats[2] + " DEF, " + stats[3] + " ACC, " + stats[4] + " EVA and " + stats[5] + " HP<br>\r");
 					if(card_ids[i] == 1016420550)//Jabba CL
@@ -420,7 +420,7 @@ public class formation
 					effect = rs.getInt("lvup_effect_2");
 				}
 				
-				bountyHunters.add(new card(rs.getInt("card_id"), rs.getString("card_name"), stats[5], stats[1], stats[2], stats[3], stats[4], stats[0], attackCount, range, pattern, delay, rs.getInt("race"), rs.getInt("skill_id"), rs.getString("skill_name"), skill_level, effect, rs.getInt("type"), rs.getInt("priority"), side, rs.getInt("rarity")+1, rs.getInt("weapon_type"), rs.getInt("lvup_prob"), this));
+				bountyHunters.add(new card(rs.getInt("card_id"), rs.getString("card_name"), stats[5], stats[1], stats[2], stats[3], stats[4], stats[0], attackCount, range, pattern, delay, rs.getInt("race"), rs.getInt("skill_id"), rs.getString("skill_name"), skill_level, effect, rs.getInt("type"), rs.getInt("priority"), side, rs.getInt("rarity")+1, rs.getInt("weapon_type"), rs.getInt("lvup_prob"), this, rs.getInt("character_id")));
 			}
 			bountyHunters_backup.addAll(bountyHunters);
 		}
@@ -899,7 +899,7 @@ public class formation
 				
 				undercover.add(new card(card_id, rs.getString("card_name"), stats[5], stats[1], stats[2], stats[3], stats[4], stats[0], attackCount, range, pattern, delay, 
 						rs.getInt("race"), rs.getInt("skill_id"), rs.getString("skill_name"), skill_level, effect, rs.getInt("type"), rs.getInt("priority"), side, rs.getInt("rarity")+1, rs.getInt("weapon_type"), 
-						rs.getInt("lvup_prob"), this));
+						rs.getInt("lvup_prob"), this, rs.getInt("character_id")));
 			}
 		}
 		catch(SQLException e)

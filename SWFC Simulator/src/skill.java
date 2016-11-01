@@ -2577,6 +2577,65 @@ public class skill
 				//TODO
 				return true;
 			}
+			else if(card.skillID == 37301 && card.front == null)//Unending Grudge (Maul MR)
+			{
+				card enemy;
+				int obi_multiplier = 1;
+				if(card.y_coordinate < 16)
+				{
+					enemy = battlefield[card.x_coordinate][card.y_coordinate+1];
+				}
+				else
+				{
+					enemy = battlefield[card.x_coordinate][card.y_coordinate-1];
+				}
+				if(enemy != null && (enemy.races[18] || (enemy.right != null && enemy.right.races[18]) || (enemy.left != null && enemy.left.races[18])))
+				{
+					if(enemy.char_id == 133|| (enemy.right != null && enemy.right.char_id == 133) || (enemy.left != null && enemy.left.char_id == 133))//Check if one of those 3 is Obi
+						obi_multiplier = 2;
+					double def_decrease1 = 0, def_decrease2 = 0, def_decrease3 = 0, def_decrease4 = 0, eva_decrease1 = 0, eva_decrease2 = 0, eva_decrease3 = 0, eva_decrease4 = 0;
+					def_decrease1 += card.baseDef * card.skill_effect * (card.skill_multiplier + 1 - card.combat_multiplier) * obi_multiplier;
+					eva_decrease1 += card.baseEva * card.skill_effect * (card.skill_multiplier + 1 - card.combat_multiplier) * obi_multiplier;
+					card.addRoundDefBoost(def_decrease1);
+					card.addRoundEvaBoost(eva_decrease1);
+					if(do_info)
+					{
+						info += card.name + "'s (" + card.x_coordinate + "|" + card.y_coordinate + ") skill \"" + card.skill_name + "\" activated!:<br>\r";
+						info += card.name + "'s (" + card.x_coordinate + "|" + card.y_coordinate + ") DEF increased by " + (int) def_decrease1 + ", EVA increased by " + (int) eva_decrease1 + "<br>\r";
+					}
+					if(!enemy.appliedSkill(card.skillID))
+					{
+						def_decrease2 += enemy.baseDef * card.skill_effect * (enemy.skill_multiplier + 1 - enemy.combat_multiplier) * obi_multiplier;
+						eva_decrease2 += enemy.baseEva * card.skill_effect * (enemy.skill_multiplier + 1 - enemy.combat_multiplier) * obi_multiplier;
+						enemy.addRoundDefBoost(-def_decrease2);
+						enemy.addRoundEvaBoost(-eva_decrease2);
+						if(do_info)		
+							info += enemy.name + "'s (" + enemy.x_coordinate + "|" + enemy.y_coordinate + ") DEF decreased by " + (int) def_decrease2 + ", EVA decreased by " + (int) eva_decrease2 + "<br>\r";
+						enemy.appliedCombatSkills.add(card.skillID);
+					}
+					if(enemy.left != null && !enemy.left.appliedSkill(card.skillID))
+					{
+						def_decrease3 += enemy.left.baseDef * card.skill_effect * (enemy.left.skill_multiplier + 1 - enemy.left.combat_multiplier) * obi_multiplier;
+						eva_decrease3 += enemy.left.baseEva * card.skill_effect * (enemy.left.skill_multiplier + 1 - enemy.left.combat_multiplier) * obi_multiplier;
+						enemy.left.addRoundDefBoost(-def_decrease3);
+						enemy.left.addRoundEvaBoost(-eva_decrease3);
+						if(do_info)		
+							info += enemy.left.name + "'s (" + enemy.left.x_coordinate + "|" + enemy.left.y_coordinate + ") DEF decreased by " + (int) def_decrease3 + ", EVA decreased by " + (int) eva_decrease3 + "<br>\r";
+						enemy.left.appliedCombatSkills.add(card.skillID);
+					}
+					if(enemy.right != null && !enemy.right.appliedSkill(card.skillID))
+					{
+						def_decrease4 += enemy.right.baseDef * card.skill_effect * (enemy.right.skill_multiplier + 1 - enemy.right.combat_multiplier) * obi_multiplier;
+						eva_decrease4 += enemy.right.baseEva * card.skill_effect * (enemy.right.skill_multiplier + 1 - enemy.right.combat_multiplier) * obi_multiplier;
+						enemy.right.addRoundDefBoost(-def_decrease4);
+						enemy.right.addRoundEvaBoost(-eva_decrease4);
+						if(do_info)		
+							info += enemy.right.name + "'s (" + enemy.right.x_coordinate + "|" + enemy.right.y_coordinate + ") DEF decreased by " + (int) def_decrease4 + ", EVA decreased by " + (int) eva_decrease4 + "<br>\r";
+						enemy.right.appliedCombatSkills.add(card.skillID);
+					}
+				}
+				return true;
+			}
 		}
 		else
 			card.combat_unable = false;

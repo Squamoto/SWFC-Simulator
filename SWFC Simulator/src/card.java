@@ -5,7 +5,7 @@ public class card
 	String name, pattern, skill_name;
 	int hp, atk, def, acc, eva, attackCount, numberOfTurns, delay, skillID, baseAtk, baseDef, baseAcc, baseEva, skill_type, skill_priority, max_hp, weapon_type, dmg_received, hits_received, 
 		roundAtkBoost, roundDefBoost, roundAccBoost, roundEvaBoost, roundFreqBoost, rarity, x_coordinate, y_coordinate, real_delay, prep_def, prep_atk, prep_eva, prep_acc, prep_hp, card_id, 
-		concentrated_fire = -1, strangle_damage = 50, strangle_eva, evo_state, skill_level;
+		concentrated_fire = -1, strangle_damage = 50, strangle_eva, evo_state, skill_level, char_id;
 	double combat_multiplier = 1.0, skill_multiplier = 1.0, proc_rate, friendly_fire, skill_effect;
 	char range, side, real_range;
 	boolean stunned, leader, self_skill_activated, revived, nullified, champion, merciless, combat_unable, anti_lightsaber;
@@ -17,7 +17,7 @@ public class card
 	/* 0 = First Order, 1 = Resistance, 2 = Mandalorian, 3 = Jabba, 4 = Tatooinian, 5 = Wookiee, 6 = Separatists, 7 = Republic, 8 = Empire, 9 = Rebel, 10 = Nabooan, 11 = Gungan, 
 	 * 12 = Clone, 13 = Ewok, 14 = Beast, 15 = Bounty Hunter, 16 = Pod Racer, 17 = Sith, 18 = Jedi, 19 = Senator, 20 = Military?, 21 = Droid, 22 = Female, 23 = Male*/
 	
-	card(int card_id, String name, int hp, int atk, int def, int acc, int eva, int evo_state, int attackCount, char range, String pattern, int delay, int race, int skillID, String skill_name, int skill_level, double skill_effect, int skill_type, int skill_priority, char side, int rarity, int weapon_type, double proc_rate, formation ownFormation)
+	card(int card_id, String name, int hp, int atk, int def, int acc, int eva, int evo_state, int attackCount, char range, String pattern, int delay, int race, int skillID, String skill_name, int skill_level, double skill_effect, int skill_type, int skill_priority, char side, int rarity, int weapon_type, double proc_rate, formation ownFormation, int char_id)
 	{
 		this.card_id = card_id;
 		this.name = name;
@@ -50,6 +50,7 @@ public class card
 		baseEva = eva;
 		real_range = range;
 		real_delay = delay;
+		this.char_id = char_id;
 	}
 	
 	public boolean alive()
