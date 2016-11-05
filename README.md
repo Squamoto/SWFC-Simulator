@@ -27,13 +27,13 @@ http://imgur.com/a/KcpWp
 
 # Vagrant
 
+Vagrant is software that can build a virtual machine from a file containing instructions on what to build. It is often used by developers to preserve and share their development environment. Source code is shared between the host machine and the virtual machine.
+
 To use Vagrant: (for OSX, Linux, or windows)
 
 1. Install virtualbox: https://www.virtualbox.org/wiki/Downloads
 1. Install Vagrant: https://www.vagrantup.com/downloads.html
-1. Install Vagrant vbguest additions:
-
-    `$ vagrant plugin install vagrant-vbguest`
+1. Install Vagrant vbguest additions: `$ vagrant plugin install vagrant-vbguest`
 1. Start Vagrant. On the command line from the same directory as the Vagrantfile (this will take a while the first time you run it)
 
     ```$ vagrant up```
@@ -45,4 +45,8 @@ To use Vagrant: (for OSX, Linux, or windows)
 ```shell
 $ vagrant ssh
 $ cd SWFC-Simulator
-     ```
+```
+
+# Development Cycle
+In the SWFC-Simulator directory, there is a build.sh script. After making changes to source code just run
+```./build.sh``` This will compile the java code, deploy all code to the webserver (at /var/www), and restart the webserver.
